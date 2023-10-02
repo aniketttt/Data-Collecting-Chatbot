@@ -16,7 +16,7 @@ def save_to_text_file(details, filename):
             file.write(f"{key}: {value}\n")
 
 def upload_to_s3(filename):
-    bucket_name = 'chatbot-test-bucket-project'
+    bucket_name = 'YOUR_BUCKET_NAME'
     s3.upload_file(filename, bucket_name, filename)
 
 questions = [
