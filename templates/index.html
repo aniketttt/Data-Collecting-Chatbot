@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <h1>Personal Details Chatbot</h1>
+        </div>
         <div id="chatbox">
             <!-- Chat messages will appear here -->
         </div>
-        <input type="text" id="userInput" placeholder="Type a message...">
-        <button id="sendMessage">Send</button>
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type a message...">
+            <button id="sendMessage">Send</button>
+        </div>
     </div>
 
     <script>
@@ -26,11 +31,28 @@
             messageElement.className = `message ${messageClass}`;
             messageElement.innerText = message;
             chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;  // Auto scroll to the bottom
+        }
+
+        function validateResponse(response, question) {
+            if (question.includes("email") && !response.includes('@')) {
+                return false;
+            }
+            return true;
         }
 
         function sendUserMessage() {
             const userMessage = userInput.value.trim();
             if (userMessage !== '') {
+                const lastMessage = document.querySelectorAll('.message.received:last-child');
+                const lastQuestion = lastMessage ? lastMessage[lastMessage.length - 1].innerText : "";
+
+                if (!validateResponse(userMessage, lastQuestion)) {
+                    addMessage("Chatbot: Invalid response. Please try again.");
+                    userInput.value = '';
+                    return;
+                }
+
                 addMessage(`You: ${userMessage}`, true);
                 userInput.value = '';
 
@@ -44,6 +66,9 @@
                 .then(response => response.json())
                 .then(data => {
                     addMessage(`Chatbot: ${data.message}`);
+                })
+                .catch(error => {
+                    addMessage('Chatbot: Sorry, something went wrong. Please try again.');
                 });
             }
         }
@@ -57,7 +82,7 @@
         });
 
         // Initial greeting from chatbot
-        addMessage("Chatbot: Hello! I'm the Personal Details Chatbot. Let's get started with the txt file name you want?");
+        addMessage("Chatbot: Hello! I'm the Personal Details Chatbot. Let's get started. What is your name?");
     </script>
 </body>
 </html>
