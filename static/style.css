@@ -180,3 +180,146 @@ h1 {
 .view-files-btn:hover {
     background-color: #135D66;
 }
+
+
+
+
+
+/* style.css */
+
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #003C43;
+}
+
+/* Chatbox styling */
+#chatbox {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    animation: fadeInUp 0.5s ease;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    animation: scaleIn 0.3s ease;
+}
+
+.received {
+    background-color: #e5e5e5;
+    text-align: left;
+}
+
+.sent {
+    background-color: #007bff;
+    color: #fff;
+    text-align: right;
+}
+
+/* Input and button styling */
+input[type="text"] {
+    width: calc(100% - 80px);
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#sendMessage {
+    width: 80px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#sendMessage:hover {
+    background-color: #0056b3;
+}
+
+/* File list styling */
+.file-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.file-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E3FEF7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+.file-list li a {
+    text-decoration: none;
+    color: #135D66;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.file-list li a:hover {
+    color: #003C43;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
