@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Personal Details Chatbot</h1>
+            <h1>Personal Details Collection Chatbot</h1>
         </div>
         <div id="chatbox">
             <!-- Chat messages will appear here -->
@@ -17,6 +17,7 @@
         <div class="input-container">
             <input type="text" id="userInput" placeholder="Type a message...">
             <button id="sendMessage">Send</button>
+            <a href="{{ url_for('view_data') }}" class="view-files-btn">View Submitted Data</a>
         </div>
     </div>
 
@@ -82,7 +83,7 @@
         });
 
         // Initial greeting from chatbot
-        addMessage("Chatbot: Hello! I'm the Personal Details Chatbot. Let's get started. What is your name?");
+        addMessage("Chatbot: Hello! I'm the Personal Details Collection Chatbot. Let's get started. Choose your file name?");
     </script>
 </body>
 </html>
