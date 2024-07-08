@@ -60,7 +60,7 @@ class Chatbot:
                 file.write(f"{key}: {value}\n")
 
     def upload_to_s3(self, filename):
-        bucket_name = 'chatbot-data-collection-bucket'
+        bucket_name = 'BUCKET NAME'
         s3.upload_file(filename, bucket_name, filename)
 
 chatbot = Chatbot()
@@ -77,7 +77,7 @@ def index():
 
 @app.route('/display-file/<filename>', methods=['GET'])
 def display_file(filename):
-    bucket_name = 'chatbot-data-collection-bucket'
+    bucket_name = 'BUCKET NAME'
     try:
         obj = s3.get_object(Bucket=bucket_name, Key=filename)
         file_content = obj['Body'].read().decode('utf-8')
